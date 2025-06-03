@@ -1,0 +1,10 @@
+.slider-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.min-label, .max-label {
+  font-size: 14px;
+  color: #333;
+}
