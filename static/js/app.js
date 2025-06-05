@@ -1,44 +1,13 @@
-// function updateValue(slider, valueId) {
-//         document.getElementById(valueId).innerText = slider.value + (valueId.includes("sqft") || valueId.includes("lotSize") ? " sq ft" : "");
-// }
-
-// function submitData() {
-//         const formData = {
-//             bedrooms: document.getElementById("bedrooms").value,
-//             full_baths: document.getElementById("fullBaths").value,
-//             three_quarter_baths: document.getElementById("threeQuarterBaths").value,
-//             half_baths: document.getElementById("halfBaths").value,
-//             sqft: document.getElementById("squareFeet").value,
-//             lot_size: document.getElementById("lotSize").value
-//         };
-
-//         console.log("Submitting Data:", formData);
-
-//         // fetch("http://localhost:5000/predict", {
-//         //     method: "POST",
-//         //     headers: { "Content-Type": "application/json" },
-//         //     body: JSON.stringify(formData)
-//         // })
-//         // .then(response => response.json())
-//         // .then(data => {
-//         //     console.log("Parsed Response:", data);
-//         //     alert("Projected Sale Value: $" + data.predicted_price);
-//         // })
-//         // .catch(error => console.error("Error:", error));
-// }
-
     let timeout = null;
 
     function updateAndPredict() {
         clearTimeout(timeout);
         timeout = setTimeout(() => {
             const formData = {
-                bedrooms: document.getElementById("bedrooms").value,
-                full_baths: document.getElementById("full_baths").value,
-                three_quarter_baths: document.getElementById("three_quarter_baths").value,
-                half_baths: document.getElementById("half_baths").value,
+                beds: document.getElementById("bedrooms").value,
+                baths: document.getElementById("full_baths").value,
                 sqft: document.getElementById("sqft").value,
-                lot_size: document.getElementById("lot_size").value
+                lot_sqft: document.getElementById("lot_size").value
             };
             console.log("Submitting Data:", formData);
         //     document.getElementById("predictedPrice").innerText = "Calculating...";
@@ -64,8 +33,6 @@
     function updateValues() {
         document.getElementById("bedroomsValue").innerText = document.getElementById("bedrooms").value;
         document.getElementById("fullBathsValue").innerText = document.getElementById("full_baths").value;
-        document.getElementById("threeQuarterBathsValue").innerText = document.getElementById("three_quarter_baths").value;
-        document.getElementById("halfBathsValue").innerText = document.getElementById("half_baths").value;
         document.getElementById("sqftValue").innerText = document.getElementById("sqft").value + " sq ft";
         document.getElementById("lotSizeValue").innerText = document.getElementById("lot_size").value + " sq ft";
     }
@@ -74,10 +41,8 @@
         // Reset slider values
         document.getElementById("bedrooms").value = 0;
         document.getElementById("full_baths").value = 0;
-        document.getElementById("three_quarter_baths").value = 0;
-        document.getElementById("half_baths").value = 0;
-        document.getElementById("sqft").value = 1000;
-        document.getElementById("lot_size").value = 5000;
+        document.getElementById("sqft").value = 0;
+        document.getElementById("lot_size").value = 0;
 
         // Update displayed values
         updateValues();
