@@ -1,5 +1,16 @@
 # Project-4-Home-Sales
 
 ## Data Source
- - Downloaded a dataset from Kaggle showing real estate transations in King County WA from 1999 - 2023. Krause, A. (2025, January 13). King County (WA) home sales. Kaggle. https://www.kaggle.com/datasets/andykrause/kingcountysales?select=kingcountysales_2000_2023.csv 
- - Used Pandas to filter the data to 2013 - 2023 and create a .csv file. 
+ - Used API for realtor.com to call for single family homes in/around St. Paul, MM.
+ - Used Pandas to pull desired data: list price, list date, sold price, sold date, bedrooms, baths, square footage, lot square footage, address and coordinates.
+ - Formatted dataframe and save as a .csv file.
+
+## Create Predictive Model
+ - Upload CSV
+
+## Create Folium map 
+ - Upload CSV and create Folium map to show recently sold homes that match a users input (beds, bath, square footage)
+
+## Build Webpage
+ - Build an intereactive user face
+ - User can put in features from their property and it will reference the model to make a prediction for what their home will sell for
