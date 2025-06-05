@@ -8,3 +8,29 @@
   font-size: 14px;
   color: #333;
 }
+
+#map_cce3ecc6594015bfbf8304cac5798552 {
+  position: relative;
+  width: 100.0%;
+  height: 100.0%;
+  left: 0.0%;
+  top: 0.0%;
+}
+
+  .leaflet-container { font-size: 1rem; }
+          
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#map {
+  position:absolute;
+  top:0;
+  bottom:0;
+  right:0;
+  left:0;
+}
