@@ -4,27 +4,30 @@
         clearTimeout(timeout);
         timeout = setTimeout(() => {
             const formData = {
-                beds: document.getElementById("bedrooms").value,
                 baths: document.getElementById("full_baths").value,
-                sqft: document.getElementById("sqft").value,
-                lot_sqft: document.getElementById("lot_size").value
+                beds: document.getElementById("bedrooms").value,
+                lot_sqft: document.getElementById("lot_size").value,
+                sqft: document.getElementById("sqft").value
+                // beds_baths_ratio: document.getElementById("bedrooms").value/document.getElementById("full_baths").value,
+                // lot_to_sqft_ratio: document.getElementById("lot_size").value/document.getElementById("sqft").value
             };
             console.log("Submitting Data:", formData);
-        //     document.getElementById("predictedPrice").innerText = "Calculating...";
-            document.getElementById("predictedPrice").innerText = ("See Console");
-        //     fetch("http://localhost:5000/predict", {
-        //         method: "POST",
-        //         headers: { "Content-Type": "application/json" },
-        //         body: JSON.stringify(formData)
-        //     })
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         document.getElementById("predictedPrice").innerText = "$" + data.predicted_price.toLocaleString();
-        //     })
-        //     .catch(error => {
-        //         console.error("Error:", error);
-        //         document.getElementById("predictedPrice").innerText = "Error fetching price";
-        //     });
+       
+            // d3.json("Model_Selection/sold_price_model.pkl").then((data) => {
+            document.getElementById("predicted_price").innerText = "Calculating...";
+            fetch("http://127.0.0.1:5000/predict", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("predicted_Price").innerText = "$" + data.predicted_price.toLocaleString();
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                document.getElementById("predicted_Price").innerText = "Error fetching price";
+            });
 
             updateValues();
         }, 300);
@@ -48,5 +51,5 @@
         updateValues();
 
         // Clear predicted price
-        document.getElementById("predictedPrice").innerText = "Awaiting input...";
+        document.getElementById("predicted_Price").innerText = "Awaiting input...";
     }
