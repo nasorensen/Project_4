@@ -14,17 +14,12 @@ Project 4 pulls together skills learned throughout the Data Analytics Bootcamp t
  - Used Pandas to pull desired data: list price, list date, sold price, sold date, bedrooms, baths, square footage, lot square footage, address and coordinates.
  - Formatted dataframe and save as a .csv file.
 
-## Create Predictive Model
- - Connected to rapidapi.com and queried twin cities area MN Real Estate sales for single-family homes.  
- - The areas queried in are based on zip codes in St. Paul and the surrounding areas including Roseviile, North Oaks, Shoreview, Hugo, White Bear Lake, Arden Hills, Gem Lake, New Brighton, Little Canada, Maplewood, West St. Paul, Falcon Heights, Mounds View, Lauderdale, Mendota Heights and North St. Paul. 
- - Due to API calls limitaions, the data goes back to sale date of December 2024 and includes about 1300 entries. 
-
 ## Map  
  - Kelley
 
 ## Predicting Home Sales and Market Duration in Saint Paul
-Analyzing home sale data in Saint Paul, Minnesota to:
-1. Developed and compared various regression models to find the best-performing solution to predict the sale price and estimate how long a house stays on the market.
+Analyzed home sale data in Saint Paul, Minnesota to:
+1. Develop and compare various regression models to find the best-performing solution to predict the sale price and estimate how long a house stays on the market.
 2. Predict the sale price of a house based on features like square footage, number of beds/baths, and lot size and created a model for integration in to a site.
 ### 1. Model_Selction.ipynb in Model_Selection Folder
 Compare multiple machine learning models to predict sold_price and days_on_market.
@@ -46,12 +41,17 @@ Optimize a single model (Gradient Boosting Regressor) to reliably predict sold p
 Results
 Achieved R2 of 0.828 on the test set with slight overfitting of R2 training vs test.
  - 
- - Jennifer: 
- - A model was developed to predict the number of days on market based on the user input. 
- - The model used XGBoost, a type of decision tree machine learning model commonly used in real estate.
+ ### 3. Days on Market model
+Used XGBoost, a type of decision tree machine learning model commonly used in real estate.
+Steps Taken: 
+ - Loaded the .csv file into the model and performed data pre-processing
+ - Calculated days on market by subtracting sold_date from list_date
+ - dropped unnecessary columns: list_date, sold_date, city, street, latitude, longitude, zip, list_price, sold_price
+ - Split the data into training and testing, then set up the model. 
+ - Ran GridsearchCV to determine the best parameters, determined the feature importance. 
+ - Re-ran the model after dropping additional column and adjusting the parameters. 
  - Many attemps were made to optimize this model, however, results peaked at 71% R2 accuracy. 
  - Ultimately, the group decided not to include this model in the final project due to the low accuracy.
- - 
 
 ## Create Folium map 
  - Upload CSV and create Folium map to show recently sold homes that match a users input (beds, bath, square footage)
