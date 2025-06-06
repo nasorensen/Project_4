@@ -10,33 +10,43 @@ def index():
 @app.route("/predict", methods=["POST"])
 def predict():
     data = request.json
-    beds = data.get("beds")
-    baths = data.get("baths")
-    sqft = data.get("sqft")
-    lot = data.get("lot_sqft")
-    print("Received data for prediction:", data)
+    beds = float(data.get("beds"))
+    baths = float(data.get("baths"))
+    sqft = float(data.get("sqft"))
+    
+    # Use 'lot_sqft' if present, else fallback to 'lot'
+    lot_sqft = data.get("lot_sqft") or data.get("lot")
+    if lot_sqft is None:
+        return jsonify({"error": "Missing lot_sqft/lot"}), 400
+    lot_sqft = float(lot_sqft)
 
-    price = predict_price(beds, baths, sqft, lot)
-    print(f"Input: {data}, Predicted Price: {price}")  # Debug logging
+    beds_baths_ratio = beds / baths if baths else 0
+    lot_to_sqft_ratio = lot_sqft / sqft if sqft else 0
 
-    # Eventually add similar homes
+    price = predict_price(beds, baths, sqft, lot_sqft, beds_baths_ratio, lot_to_sqft_ratio)
     return jsonify({"predicted_price": price})
-
-if __name__ == "__main__":
-    app.run(debug=True)
 
 @app.route("/similar-homes", methods=["POST"])
 def similar_homes():
     data = request.get_json()
-
     try:
-        beds = int(data.get("beds"))
+        beds = float(data.get("beds"))
         baths = float(data.get("baths"))
-        sqft = int(data.get("sqft"))
-        lot = int(data.get("lot"))  # <-- this was coming through as None
+        sqft = float(data.get("sqft"))
+        lot_sqft = data.get("lot_sqft") or data.get("lot")
+        if lot_sqft is None:
+            raise ValueError("Missing lot_sqft/lot")
+        lot_sqft = float(lot_sqft)
+
+        beds_baths_ratio = beds / baths if baths else 0
+        lot_to_sqft_ratio = lot_sqft / sqft if sqft else 0
+
     except (TypeError, ValueError) as e:
         print("Invalid input for similarity search:", data, "Error:", e)
         return jsonify([])
 
-    similar = find_similar_homes(beds, baths, sqft, lot)
+    similar = find_similar_homes(beds, baths, sqft, lot_sqft, beds_baths_ratio, lot_to_sqft_ratio)
     return jsonify(similar)
+
+if __name__ == "__main__":
+    app.run(debug=True)

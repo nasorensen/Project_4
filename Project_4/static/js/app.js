@@ -26,17 +26,29 @@ function updateMapWithSimilarHomes(homes) {
   markers = [];
 
 homes.forEach(home => {
-  // Convert latitude and longitude to numbers
   home.latitude = Number(home.latitude);
   home.longitude = Number(home.longitude);
-  
+
   if (!isNaN(home.latitude) && !isNaN(home.longitude)) {
+    // Build address string if street, city, and zip exist
+    let address = "";
+    if (home.street && home.city && home.zip) {
+      address = `${home.street}, ${home.city}, ${home.zip}`;
+    }
+
     const marker = L.circleMarker([home.latitude, home.longitude], {
       radius: 8,
       color: "#007BFF",
       fillOpacity: 0.6
-    }).bindPopup(`$${home.sold_price.toLocaleString()}`);
-    
+    }).bindPopup(`
+      <b>Price:</b> $${home.sold_price.toLocaleString()}<br>
+      <b>Beds:</b> ${home.beds}<br>
+      <b>Baths:</b> ${home.baths}<br>
+      <b>Sqft:</b> ${home.sqft}<br>
+      <b>Lot Sqft:</b> ${home.lot_sqft}<br>
+      ${address ? `<b>Address:</b> ${address}<br>` : ""}
+    `);
+
     marker.addTo(map);
     markers.push(marker);
   } else {
