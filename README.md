@@ -19,14 +19,14 @@ Analyzed home sale data in Saint Paul, Minnesota to:
 2. Predict the sale price of a house based on features like square footage, number of beds/baths, and lot size and created a model for integration in to a site.
 
 ### 1. Model_Selction.ipynb in Model_Selection Folder
-Compare multiple machine learning models to predict sold_price and days_on_market.
-Steps Taken:
+Compare multiple machine learning models to predict sold_price and days_on_market.  
+Steps Taken:  
  - Upload st_paul_sold_properties.csv performed data processing and data clean-up.
  - Cleaned and engineered features (computed days_on_market).
  - Explored data using correlation heatmaps.
  - Tested 8 regression models (e.g. Random Forest, Gradient Boosting, Ridge, Lasso).
- - Evaluated performance using MAE and R2.
-Results
+ - Evaluated performance using MAE and R2.  
+Results  
  - Random Forest gave the best result for both sold price and days on market. Followed close by Gradient Boosting.
  - Predicting sale price was more accurate than days_on_market (R2 for DOM was low).
 ### 2. Price_Sold_Regression.ipynb in Model_Selection Folder
@@ -34,10 +34,9 @@ Optimize a single model (Gradient Boosting Regressor) to reliably predict sold p
  - Added new features like beds_baths_ratio and lot_to_sqft_ratio.
  - Created a machine learning pipeline with preprocessing steps.
  - Perfomed hyperparameter tuning using GridSearchCV.
- - Final model saved to disk as sold_price_model.pkl.
-Results
-Achieved R2 of 0.828 on the test set with slight overfitting of R2 training vs test.
- - 
+ - Final model saved to disk as sold_price_model.pkl.  
+Result  
+ - Achieved R2 of 0.828 on the test set with slight overfitting of R2 training vs test.
  ### 3. Days on Market model
 Used XGBoost, a type of decision tree machine learning model commonly used in real estate.
 Steps Taken: 
