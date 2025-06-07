@@ -1,4 +1,3 @@
-
 # Project 4 Home Sales
  - Nicolette Sorensen
  - Deborah Kisch
@@ -14,13 +13,11 @@ Project 4 pulls together skills learned throughout the Data Analytics Bootcamp t
  - Used Pandas to pull desired data: list price, list date, sold price, sold date, bedrooms, baths, square footage, lot square footage, address and coordinates.
  - Formatted dataframe and save as a .csv file.
 
-## Map  
- - Kelley
-
 ## Predicting Home Sales and Market Duration in Saint Paul
 Analyzed home sale data in Saint Paul, Minnesota to:
 1. Develop and compare various regression models to find the best-performing solution to predict the sale price and estimate how long a house stays on the market.
 2. Predict the sale price of a house based on features like square footage, number of beds/baths, and lot size and created a model for integration in to a site.
+
 ### 1. Model_Selction.ipynb in Model_Selection Folder
 Compare multiple machine learning models to predict sold_price and days_on_market.
 Steps Taken:
@@ -54,12 +51,12 @@ Steps Taken:
  - Ultimately, the group decided not to include this model in the final project due to the low accuracy.
 
 ## Create Folium map 
- - Upload CSV and create Folium map to show recently sold homes that match a users input (beds, bath, square footage)
-
-## Build Webpage
- - Build an intereactive user face
- - User can put in features from their property and it will reference the model to make a prediction for what their home will sell for
- -   
+ - Create Flask call
+ - Upload CSV and preprocess sold price, beds, baths, sqft, longitdue and latitude columns
+ - Normalize the data with scaler
+ - Create user input areas
+ - Create Folium map to show recently sold homes that match a users input (beds, bath, square footage)
+ - Include pop-up markers to include sold price, sqft, beds, baths, sqft
 
 ## Flask Web Interface
  - Deborah
