@@ -37,6 +37,7 @@ Optimize a single model (Gradient Boosting Regressor) to reliably predict sold p
  - Final model saved to disk as sold_price_model.pkl.  
 Result  
  - Achieved R2 of 0.828 on the test set with slight overfitting of R2 training vs test.
+ 
  ### 3. Days on Market model
 Used XGBoost, a type of decision tree machine learning model commonly used in real estate.
 Steps Taken: 
@@ -46,7 +47,7 @@ Steps Taken:
  - Split the data into training and testing, then set up the model. 
  - Ran GridsearchCV to determine the best parameters, determined the feature importance. 
  - Re-ran the model after dropping additional column and adjusting the parameters. 
- - Many attemps were made to optimize this model, however, results peaked at 71% R2 accuracy. 
+ - Many attemps were made to optimize this model, however, results peaked at 73% R2 accuracy. 
  - Ultimately, the group decided not to include this model in the final project due to the low accuracy.
 
 ## Create Folium map 
