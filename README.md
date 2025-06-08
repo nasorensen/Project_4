@@ -64,5 +64,20 @@ Steps Taken:
 ## Flask Web Interface
  - Deborah
 
-## HTML Tying it all together
- - Nicolette
+## Flask Backend: Tying it all together
+### Connected the trained regression model to a Flask server, creating API endpoints that:
+ - Predicts a home’s sale price based on user input (beds, baths, square feet, lot size)
+ - Returns a list of the most similar homes sold, based on calculated ratios and features
+ - Frontend with Interactive Map
+### Designed and implemented an HTML/JavaScript interface that:
+ - Lets users adjust home features with sliders
+ - Instantly shows the predicted price
+ - Displays a Leaflet.js map of similar homes, each with a detailed popup showing price, beds, baths, square footage, lot size, and full address
+### UX Enhancements
+ - Created live prediction updates as users interact with sliders
+ - Implemented debouncing to limit backend calls
+ - Added interactive tooltips and map markers to improve usability
+### Tools & Technologies
+ - Python, Flask, Pandas, NumPy, Scikit-learn
+ - HTML, JavaScript, Leaflet.js
+ - CSV data pipeline and joblib for model loading
