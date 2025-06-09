@@ -1,4 +1,8 @@
 # Project 4 Home Sales
+
+Google Slides Deck: https://docs.google.com/presentation/d/17sejluZsZA4_xemRHWpfLncSm06TlfVYHXxHatSkIO4/edit?slide=id.g41a8f1e756_0_702#slide=id.g41a8f1e756_0_702
+
+## Project Team
  - Nicolette Sorensen
  - Deborah Kisch
  - Janice Guallpa
@@ -29,6 +33,7 @@ Steps Taken:
 Results  
  - Random Forest gave the best result for both sold price and days on market. Followed close by Gradient Boosting.
  - Predicting sale price was more accurate than days_on_market (R2 for DOM was low).
+
 ### 2. Price_Sold_Regression.ipynb in Model_Selection Folder
 Optimize a single model (Gradient Boosting Regressor) to reliably predict sold price.
  - Added new features like beds_baths_ratio and lot_to_sqft_ratio.
@@ -58,9 +63,6 @@ Steps Taken:
  - Create Folium map to show recently sold homes that match a users input (beds, bath, square footage)
  - Include pop-up markers to include sold price, sqft, beds, baths, sqft
 
-## Flask Web Interface
- - Deborah
-
 ## Flask Backend: Tying it all together
 ### Connected the trained regression model to a Flask server, creating API endpoints that:
  - Predicts a home’s sale price based on user input (beds, baths, square feet, lot size)
@@ -78,3 +80,8 @@ Steps Taken:
  - Python, Flask, Pandas, NumPy, Scikit-learn
  - HTML, JavaScript, Leaflet.js
  - CSV data pipeline and joblib for model loading
+
+## References
+- This data is publicly available on .
+- Guidance on overlaymaps, jupyter notebook tabular table, and JavaScript coding was sourced from theXpert Learning Assistant Chat+, an AI Learning tool for Edx, as well as Microsoft Copilot.  
+- Used google for leaftlet maps and marker functions accessed June 2025.
